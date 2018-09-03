@@ -4,6 +4,8 @@ import {Hero} from '../../../modules/heroes/shared/hero.model';
 import {HeroService} from '../../../modules/heroes/shared/hero.service';
 import {AppConfig} from '../../../config/app.config';
 
+let eugensCounter = 0;
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -41,5 +43,10 @@ export class HomePage implements OnInit {
     if (hero.default) {
       this.router.navigate([AppConfig.routes.heroes + '/' + hero.id]);
     }
+  }
+  getGreetingFromEugen(): string {
+      eugensCounter++;
+      console.error('Hello from Eugen', eugensCounter);
+      return 'Hello from Eugen';
   }
 }
